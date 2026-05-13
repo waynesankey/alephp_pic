@@ -96,6 +96,8 @@ All 8 shift registers update simultaneously on this single latch pulse.
 
 Shift 8 bytes, the **farthest shift register first**. The first byte shifted gets pushed to the end of the chain as subsequent bytes are loaded.
 
+Note that since the relays are loaded last in the 64 bit shift register, and those are likely the only ones that survive a controller redesign, only those 3 bytes need to be shifted before the parallel load signal RCLK is taken high.
+
 | Shift order | Byte | Final SR position |
 |-------------|------|-------------------|
 | 1st (shifted first) | Right display — low digit | SR 8 (farthest) |
