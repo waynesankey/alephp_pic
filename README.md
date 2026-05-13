@@ -96,7 +96,6 @@ All 8 shift registers update simultaneously on this single latch pulse.
 
 Shift 8 bytes, the **farthest shift register first**. The first byte shifted gets pushed to the end of the chain as subsequent bytes are loaded.
 
-Note that since the relays are loaded last in the 64 bit shift register, and those are likely the only ones that survive a controller redesign, only those 3 bytes need to be shifted before the parallel load signal RCLK is taken high.
 
 | Shift order | Byte | Final SR position |
 |-------------|------|-------------------|
@@ -149,7 +148,7 @@ The input selector encoder shows intermittent behaviour consistent with worn or 
 
 ## Possible future work
 
-The physical encoder situation (encoders are epoxied to the faceplate) and the desirability of a richer display (4×20 LCD, WiFi remote control) make a migration to an RP2040/RP2350 (Raspberry Pi Pico / Pico 2) attractive. The relay hardware, anti-pop sequencing approach, logarithmic volume table, and startup mute timing documented here all carry forward directly to any replacement design. The Pico PIO peripheral can decode all three quadrature encoders in hardware with no debounce code required.
+The physical encoder situation (encoders are epoxied to the faceplate) and the desirability of a richer display (4×20 LCD, WiFi remote control) make a migration to an RP2040/RP2350 (Raspberry Pi Pico / Pico 2) attractive. The relay hardware, anti-pop sequencing approach, logarithmic volume table, and startup mute timing documented here all carry forward directly to any replacement design. The Pico PIO peripheral can decode all three quadrature encoders in hardware with no debounce code required. Since the relays are loaded last in the 64 bit shift register, and those are likely the only ones that survive a controller redesign, only those 3 bytes need to be shifted before the parallel load signal RCLK is taken high.
 
 ## File
 
