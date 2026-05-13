@@ -1,0 +1,19 @@
+# MPASM / MPLAB build outputs
+*.hex
+*.lst
+*.cod
+*.err
+*.map
+*.o
+*.cof
+
+# MPLAB X build directories
+build/
+dist/
+nbproject/private/
+
+# MPLAB 8 workspace (machine-specific paths, not useful to commit)
+*.mcw
+
+# macOS
+.DS_Store
